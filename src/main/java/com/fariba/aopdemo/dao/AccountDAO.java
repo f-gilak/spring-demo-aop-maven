@@ -46,6 +46,7 @@ public class AccountDAO {
             throw new RuntimeException("No soup for you!!");
         }
         List<Account> accounts=new ArrayList<Account>();
+
         Account account=new Account("fari","silver");
         Account account1=new Account("pari","gold");
         Account account2=new Account("hari","silver");
