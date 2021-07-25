@@ -6,6 +6,9 @@ import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.List;
 
+import java.util.Arrays;
+import java.util.List;
+
 @Component
 public class AccountDAO {
 
@@ -59,4 +62,14 @@ public class AccountDAO {
 System.out.println("----in method findAccounts-----");
         return accounts;
     }
+    public List<String> findList(boolean isThrowException) {
+
+        if(isThrowException){
+            throw new RuntimeException("it's exception!!!");
+        }
+        List<String> strings = Arrays.asList("fariba", "pari");
+        System.out.println("---in method of findlist-----");
+        return strings;
+    }
+
 }
