@@ -11,11 +11,21 @@ public class MainAopDemo {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(DemoConfig.class);
         AccountDAO accountDAO = context.getBean("accountDAO", AccountDAO.class);
         MembershipDAO membershipDAO=context.getBean("membershipDAO",MembershipDAO.class);
-        accountDAO.addAccount();
+        Account account=new Account();
+        account.setName("fariba");
+        account.setLevel("gold ");
+        accountDAO.addAccount(account,true);
+        accountDAO.doWork();
+        accountDAO.setName("foobar");
+        accountDAO.setServiceCode("silver");
+
+        String name=accountDAO.getName();
+        String code=accountDAO.getServiceCode();
         membershipDAO.addSillyMember();
-        System.out.println("\nlet's call it again!\n");
-        accountDAO.addAccount();
-        membershipDAO.addSillyMember();
+        membershipDAO.goToSleep();
+//        System.out.println("\nlet's call it again!\n");
+//        accountDAO.addAccount(account);
+//        membershipDAO.addSillyMember();
 
         context.close();
     }
